@@ -14,7 +14,7 @@ public struct YPColors {
 
     /// The common tint color which is used for done buttons in navigation bar, multiple items selection and so on.
     public var tintColor = UIColor(r: 10, g: 120, b: 254)
-        
+    
     /// A color for navigation bar spinner.
     /// Default is nil, which is default iOS gray UIActivityIndicator.
     public var navigationBarActivityIndicatorColor: UIColor?
@@ -46,4 +46,15 @@ public struct YPColors {
     public var progressBarTrackColor: UIColor = UIColor.white
     /// The color of completed track for the progress bar
     public var progressBarCompletedColor: UIColor?
+    
+    public var backgroundColor = UIColor(r: 247, g: 247, b: 247)
+    
+    public var photoSelectedColor = UIColor(white: 0.0, alpha: 0.5)
+    
+    public var librarySeperatorColor = UIColor.white
+    
+    public var libraryZoomableViewBackgroundColor = UIColor.white
+    
+    public var libraryLineColor = UIColor.white
+    
 }

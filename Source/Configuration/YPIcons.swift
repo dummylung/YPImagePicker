@@ -26,4 +26,10 @@ public struct YPIcons {
     public var captureVideoImage: UIImage = imageFromBundle("yp_iconVideoCapture")
     public var captureVideoOnImage: UIImage = imageFromBundle("yp_iconVideoCaptureRecording")
     public var playImage: UIImage = imageFromBundle("yp_play")
+    
+    public var shouldChangeDefaultNextButtonIcon = false
+    public var shouldChangeDefaultCancelButtonIcon = false
+    
+    public var nextImage: UIImage = imageFromBundle("yp_arrow_right")
+    public var cancelImage: UIImage = imageFromBundle("yp_arrow_cancel")
 }

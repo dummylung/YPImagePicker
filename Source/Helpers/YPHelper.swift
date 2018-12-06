@@ -40,6 +40,36 @@ struct YPHelper {
         }
     }
     
+    static func changeNextButtonIcon(_ controller: UIViewController) {
+        if YPConfig.icons.shouldChangeDefaultNextButtonIcon {
+            let nextButtonIcon = YPConfig.icons.nextImage
+            if controller.navigationItem.rightBarButtonItem?.title == YPConfig.wordings.next {
+                let action = controller.navigationItem.rightBarButtonItem?.action
+                let target = controller.navigationItem.rightBarButtonItem?.target
+                let style = controller.navigationItem.rightBarButtonItem?.style
+                controller.navigationItem.rightBarButtonItem = UIBarButtonItem(image: nextButtonIcon,
+                                                                               style: style ?? .done,
+                                                                               target: target,
+                                                                               action: action)
+            }
+        }
+    }
+    
+    static func changeCancelButtonIcon(_ controller: UIViewController) {
+        if YPConfig.icons.shouldChangeDefaultCancelButtonIcon {
+            let cancelButtonIcon = YPConfig.icons.cancelImage
+            if controller.navigationItem.leftBarButtonItem?.title == YPConfig.wordings.cancel {
+                let action = controller.navigationItem.leftBarButtonItem?.action
+                let target = controller.navigationItem.leftBarButtonItem?.target
+                let style = controller.navigationItem.leftBarButtonItem?.style
+                controller.navigationItem.leftBarButtonItem = UIBarButtonItem(image: cancelButtonIcon,
+                                                                               style: style ?? .done,
+                                                                               target: target,
+                                                                               action: action)
+            }
+        }
+    }
+    
     static func configureFocusView(_ v: UIView) {
         v.alpha = 0.0
         v.backgroundColor = UIColor.clear

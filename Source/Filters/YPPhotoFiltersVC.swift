@@ -87,6 +87,8 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
         
         YPHelper.changeBackButtonIcon(self)
         YPHelper.changeBackButtonTitle(self)
+        YPHelper.changeNextButtonIcon(self)
+        YPHelper.changeCancelButtonIcon(self)
         
         // Touch preview to see original image.
         let touchDownGR = UILongPressGestureRecognizer(target: self,

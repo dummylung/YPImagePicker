@@ -46,7 +46,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(r: 247, g: 247, b: 247)
+        view.backgroundColor = YPConfig.colors.backgroundColor
         
         delegate = self
         
@@ -133,6 +133,9 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         super.viewDidAppear(animated)
         shouldHideStatusBar = true
         initialStatusBarHidden = true
+        DispatchQueue.global(qos: .userInitiated).async {
+            _ = self.albumsManager.fetchAlbums()
+        }
         UIView.animate(withDuration: 0.3) {
             self.setNeedsStatusBarAppearanceUpdate()
         }
@@ -191,11 +194,11 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         shouldHideStatusBar = false
         stopAll()
     }
-    
+
     @objc
     func navBarTapped() {
         let vc = YPAlbumVC(albumsManager: albumsManager)
-        let navVC = UINavigationController(rootViewController: vc)
+        let navVC = YPAlbumPicker(rootViewController: vc)
         
         vc.didSelectAlbum = { [weak self] album in
             self?.libraryVC?.setAlbum(album)
@@ -244,7 +247,7 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             
             let button = UIButton()
             button.addTarget(self, action: #selector(navBarTapped), for: .touchUpInside)
-            button.setBackgroundColor(UIColor.white.withAlphaComponent(0.5), forState: .highlighted)
+//            button.setBackgroundColor(UIColor.white.withAlphaComponent(0.5), forState: .highlighted)
             
             titleView.sv(
                 label,
@@ -294,6 +297,8 @@ public class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             title = videoVC?.title
             navigationItem.rightBarButtonItem = nil
         }
+        YPHelper.changeNextButtonIcon(self)
+        YPHelper.changeCancelButtonIcon(self)
     }
     
     @objc

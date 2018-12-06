@@ -16,6 +16,10 @@ class YPAlbumVC: UIViewController {
          return YPConfig.hidesStatusBar
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return YPConfig.preferredStatusBarStyle
+    }
+    
     var didSelectAlbum: ((YPAlbum) -> Void)?
     var albums = [YPAlbum]()
     let albumsManager: YPAlbumsManager
@@ -39,6 +43,7 @@ class YPAlbumVC: UIViewController {
                                                            style: .plain,
                                                            target: self,
                                                            action: #selector(close))
+        YPHelper.changeCancelButtonIcon(self)
         setUpTableView()
         fetchAlbumsInBackground()
     }

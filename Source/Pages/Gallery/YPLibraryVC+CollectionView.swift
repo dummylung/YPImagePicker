@@ -15,6 +15,7 @@ extension YPLibraryVC {
         v.collectionView.dataSource = self
         v.collectionView.delegate = self
         v.collectionView.register(YPLibraryViewCell.self, forCellWithReuseIdentifier: "YPLibraryViewCell")
+        v.collectionView.backgroundColor = YPConfig.colors.librarySeperatorColor
         
         // Long press on cell to enable multiple selection
         let longPressGR = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(longPressGR:)))

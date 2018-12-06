@@ -36,10 +36,11 @@ final class YPLibraryView: UIView {
             |line| ~ 1
         )
         
-        line.backgroundColor = .white
+        line.backgroundColor = YPConfig.colors.libraryLineColor
         
         setupMaxNumberOfItemsView()
         setupProgressBarView()
+        setupAssetZoomableView()
     }
     
     /// At the bottom there is a view that is visible when selected a limit of items with multiple selection
@@ -81,6 +82,10 @@ final class YPLibraryView: UIView {
         progressView.progressTintColor = YPConfig.colors.progressBarCompletedColor ?? YPConfig.colors.tintColor
         progressView.isHidden = true
         progressView.isUserInteractionEnabled = false
+    }
+    
+    func setupAssetZoomableView() {
+        assetZoomableView.backgroundColor = YPConfig.colors.libraryZoomableViewBackgroundColor
     }
 }
 

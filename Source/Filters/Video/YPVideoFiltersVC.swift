@@ -82,6 +82,8 @@ public class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
                                                                action: #selector(cancel))
         }
         setupRightBarButtonItem()
+        YPHelper.changeCancelButtonIcon(self)
+        YPHelper.changeNextButtonIcon(self)
     }
     
     override public func viewDidAppear(_ animated: Bool) {
